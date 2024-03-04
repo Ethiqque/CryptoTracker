@@ -1,42 +1,77 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Show</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th,
+        .table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .table thead {
+            background-color: #f4f4f4;
+        }
+        .table th {
+            color: #333;
+        }
+        .green {
+            color: #4CAF50;
+        }
+        .red {
+            color: #F44336;
+        }
+    </style>
 </head>
 <body>
-<p th:text="${book.getTitle() + ', ' + book.getAuthor() + ', ' + book.getYear()}">VALUE</p>
 
-<div th:if="${owner}">
-    <span>Книга сейчас у: </span> <span th:text="${owner.getFullName()}">Person Name</span>
-
-    <form th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getId()})}">
-        <input type="submit" value="Освободить книгу"/>
-    </form>
-</div>
-
-<div th:if="${people}">
-    <span>Эта книга свободна. Кому назначить ее?</span>
-    <form th:method="PATCH" th:action="@{/books/{id}/assign(id=${book.getId()})}">
-        <label for="person">Выберите человека</label>
-        <select th:object="${person}" th:field="*{id}" id="person">
-            <option th:each="person : ${people}" th:value="${person.getId()}" th:text="${person.getFullName()}">
-            </option>
-        </select>
-        <input type="submit" value="Назначить книгу"/>
-    </form>
-</div>
-
-<hr/>
-
-<form th:method="GET" th:action="@{/books/{id}/edit(id=${book.getId()})}">
-    <input type="submit" value="Редактировать"/>
-</form>
-
-<form th:method="DELETE" th:action="@{/books/{id}(id=${book.getId()})}">
-    <input type="submit" value="Удалить"/>
-</form>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Tier</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>1h%</th>
+        <th>24h%</th>
+        <th>7d%</th>
+        <th>Holdings</th>
+        <th>Avg. Buy Price</th>
+        <th>Profit/Loss</th>
+        <th>Percent</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Tier 1</td>
+        <td>Tether USDT</td>
+        <td>$1.0006</td>
+        <td class="red">-0.02%</td>
+        <td class="green">0.03%</td>
+        <td class="green">0.07%</td>
+        <td>$1,250.70</td>
+        <td>$0.9997</td>
+        <td class="green">+ $1135.82</td>
+        <td>100%</td>
+        <td>
+            <select name="action">
+                <option value="add">Add</option>
+                <option value="delete">Delete</option>
+                <option value="history">History</option>
+            </select>
+        </td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>

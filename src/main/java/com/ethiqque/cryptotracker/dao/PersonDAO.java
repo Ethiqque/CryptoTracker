@@ -1,4 +1,4 @@
-package ru.alishev.springcourse.dao;
+package com.ethiqque.cryptotracker.dao;
 
 import org.springframework.stereotype.Component;
 
@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
  * @author Neil Alishev
  */
 @Component
-public class BookDAO {
+public class PersonDAO {
     // Здесь будут лежать специфические запросы к БД (с помощью SQL)
 }

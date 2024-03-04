@@ -1,8 +1,8 @@
-package ru.alishev.springcourse.repositories;
+package com.ethiqque.cryptotracker.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.alishev.springcourse.models.Book;
+import com.ethiqque.cryptotracker.models.Book;
 
 import java.util.List;
 

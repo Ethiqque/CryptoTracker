@@ -1,14 +1,14 @@
-package ru.alishev.springcourse.controllers;
+package com.ethiqque.cryptotracker.controllers;
 
+import com.ethiqque.cryptotracker.models.Book;
+import com.ethiqque.cryptotracker.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.alishev.springcourse.models.Book;
-import ru.alishev.springcourse.models.Person;
-import ru.alishev.springcourse.services.BooksService;
-import ru.alishev.springcourse.services.PeopleService;
+import com.ethiqque.cryptotracker.services.BooksService;
+import com.ethiqque.cryptotracker.services.PeopleService;
 
 import javax.validation.Valid;
 
@@ -29,9 +29,9 @@ public class BooksController {
     }
 
     @GetMapping()
-    public String index(Model model, @RequestParam(value = "page", required = false) Integer page,
-                        @RequestParam(value = "books_per_page", required = false) Integer booksPerPage,
-                        @RequestParam(value = "sort_by_year", required = false) boolean sortByYear) {
+    public String showAll(Model model, @RequestParam(value = "page", required = false) Integer page,
+                          @RequestParam(value = "books_per_page", required = false) Integer booksPerPage,
+                          @RequestParam(value = "sort_by_year", required = false) boolean sortByYear) {
 
         if (page == null || booksPerPage == null)
             model.addAttribute("books", booksService.findAll(sortByYear)); // выдача всех книг
@@ -52,7 +52,7 @@ public class BooksController {
         else
             model.addAttribute("people", peopleService.findAll());
 
-        return "books/show";
+        return "showOLD";
     }
 
     @GetMapping("/new")

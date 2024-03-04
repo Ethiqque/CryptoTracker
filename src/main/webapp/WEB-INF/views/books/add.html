@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Transaction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+        }
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-header button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .form-row {
+            margin-bottom: 15px;
+        }
+        .form-row label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-row input,
+        .form-row select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-actions {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .form-actions button {
+            padding: 10px 30px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .icon {
+            padding-right: 10px;
+        }
+        .active-button {
+            background-color: #0056b3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="form-header">
+        <button id="buyButton" type="button">Buy</button>
+        <button id="sellButton" type="button">Sell</button>
+        <button id="transferButton" type="button">Transfer</button>
+    </div>
+
+    <form>
+        <div class="form-row">
+            <label for="asset">Asset</label>
+            <select id="asset" name="asset">
+                <option value="apt">APT</option>
+                <option value="arb">ARB</option>
+                <option value="usdt">USDT</option>
+                <option value="bnb">BNB</option>
+                <option value="xtz">XTZ</option>
+                <option value="stg">STG</option>
+                <option value="atom">ATOM</option>
+                <option value="ewt">EWT</option>
+                <option value="ape">APE</option>
+                <option value="1inch">1INCH</option>
+                <option value="link">LINK</option>
+                <option value="hft">HFT</option>
+                <option value="gmx">GMX</option>
+                <option value="nym">NYM</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" value="0.00" step="0.01">
+        </div>
+        <div class="form-row">
+            <label for="price">Price Per Coin</label>
+            <input type="number" id="price" name="price" value="12.32" step="0.01">
+        </div>
+        <div class="form-row">
+            <label for="date">Date & Time</label>
+            <input type="datetime-local" id="date" name="date">
+        </div>
+        <div class="form-row">
+            <label for="fee">Fee</label>
+            <input type="number" id="fee" name="fee" value="0" step="0.01">
+        </div>
+        <div class="form-row">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" rows="3"></textarea>
+        </div>
+
+        <div class="form-row">
+            <label for="totalSpent">Total Spent</label>
+            <input type="text" id="totalSpent" name="totalSpent" value="$ 0" disabled>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit">Add Transaction</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const buttons = document.querySelectorAll('.form-header button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                buttons.forEach(btn => btn.classList.remove('active-button')); // Remove active class from all buttons
+                this.classList.add('active-button'); // Add active class to the clicked button
+            });
+        });
+    });
+</script>
+</body>
+</html>

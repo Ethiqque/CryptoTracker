@@ -1,4 +1,4 @@
-package ru.alishev.springcourse.config;
+package com.ethiqque.cryptotracker.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -24,14 +24,11 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * @author Neil Alishev
- */
 @Configuration
-@ComponentScan("ru.alishev.springcourse")
+@ComponentScan("com.ethiqque.cryptotracker")
 @PropertySource("classpath:hibernate.properties")
 @EnableTransactionManagement
-@EnableJpaRepositories("ru.alishev.springcourse.repositories")
+@EnableJpaRepositories("com.ethiqque.cryptotracker.repositories")
 @EnableWebMvc
 public class SpringConfig implements WebMvcConfigurer {
 
@@ -96,7 +93,7 @@ public class SpringConfig implements WebMvcConfigurer {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("ru.alishev.springcourse.models");
+        em.setPackagesToScan("com.ethiqque.cryptotracker.models");
 
         final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);

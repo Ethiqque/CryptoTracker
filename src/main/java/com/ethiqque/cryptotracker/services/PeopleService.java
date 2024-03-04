@@ -1,12 +1,12 @@
-package ru.alishev.springcourse.services;
+package com.ethiqque.cryptotracker.services;
 
+import com.ethiqque.cryptotracker.models.Book;
+import com.ethiqque.cryptotracker.models.Person;
+import com.ethiqque.cryptotracker.repositories.PeopleRepository;
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.alishev.springcourse.models.Book;
-import ru.alishev.springcourse.models.Person;
-import ru.alishev.springcourse.repositories.PeopleRepository;
 
 import java.util.Collections;
 import java.util.Date;

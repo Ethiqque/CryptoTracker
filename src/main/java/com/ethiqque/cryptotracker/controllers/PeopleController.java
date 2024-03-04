@@ -1,13 +1,13 @@
-package ru.alishev.springcourse.controllers;
+package com.ethiqque.cryptotracker.controllers;
 
+import com.ethiqque.cryptotracker.models.Person;
+import com.ethiqque.cryptotracker.util.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.alishev.springcourse.models.Person;
-import ru.alishev.springcourse.services.PeopleService;
-import ru.alishev.springcourse.util.PersonValidator;
+import com.ethiqque.cryptotracker.services.PeopleService;
 
 import javax.validation.Valid;
 
